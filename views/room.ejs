@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<script>
+			const ROOM_ID = "<%= roomId %>";
+		</script>
+		
+		<script
+			defer
+			src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"
+		></script>
+		<script src="/socket.io/socket.io.js" defer></script>
+
+		<link rel="stylesheet" href="style.css" />
+		
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<link
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		rel="stylesheet"
+	/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0//js/froala_editor.pkgd.min.js"></script>
+	<script src="/ui.js" defer></script>
+	<script src="./script.js" defer></script>
+	<script src="/gridmaintainer.js" defer></script>
+	
+		<title>Video call</title>
+	</head>
+	<body>
+		<div class="main">
+			<div id="main__left" style="width: 100%">
+				<div class="main__videos">
+					<div id="video-grid"></div>
+				</div>
+				<div class="main__controls">
+					<div class="main__controls__block">
+						<div onclick="muteunmute()" class="main__controls__button" id="mic-btn">
+							<!-- <span id="mic-icon" class="material-icons-outlined" style="font-size:15px">mic</span> -->
+							<span id="mic-icon" class="material-icons">mic</span>
+
+							<!-- <span>Mute</span> -->
+						</div>
+						<div onclick="playstop()" id="video-btn" class="main__controls__button">
+							<span id="video-icon" class="material-icons">videocam</span>
+
+							<!-- <span id="setvideo">Stop Video</span> -->
+						</div>
+						<div onclick="displayscreen()" class="main__controls__button" id="screen-share-btn">
+							<span class="material-icons" id="screen-share-icon"
+								>screen_share</span
+							>
+
+							<!-- <span id="screen-share">Screen Share</span> -->
+						</div>
+
+						<div class="main__controls__button" onclick="chat()">
+							<span id="chat-btn" class="material-icons">chat_bubble</span>
+							<!-- <span>Chat</span> -->
+						</div>
+						<div
+							class="main__controls__button"
+							id="exit-btn"
+							style="background-color: #ea4335"
+						>
+							<span onclick="leaveChannel()" class="material-icons">call_end</span>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div id="main__right">
+					<!-- <div class="main__header">
+						<p>Chat</p>
+					</div> -->
+					<div id="main__chat__window">
+						<div class="main__header">
+							<p style="width:80%; font-size:5vmin; overflow:hidden;padding-left: 10%;">Messages..</p>
+							<div style="width: 20%;height:100%;display:flex;flex-direction:row-reverse" >
+							 <span style="overflow: hidden;cursor: pointer;"class="material-icons" onclick="chat()">close</span>
+							</div>
+						</div>
+					</div>
+	
+					<div>
+							<div style="display:flex;flex-direction:row;align-items: center;"> 
+			<div id="text" style="width:100%;"></div>
+			<div style="height:100% ;display: flex;height:100%; ">
+						<a
+							id="submit_button"
+							type="button"
+							href="#"
+							onclick="message()"
+						>
+							<i class="fa fa-paper-plane" style="color:white"></i>
+					</a>
+						</div>
+	
+	
+					</div> 
+					</div>
+				</div>
+				</div>
+
+				
+	</body>
+</html>
